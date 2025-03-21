@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+    <h1>Product Details</h1>
+    
+    <!-- Display product details -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Brand</th>
+                <th>Made In</th>
+                <th>Total Amount</th>
+                <th>Tax Amount</th>
+                <th>Created At</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${productEntity}">
+                <td th:text="${productEntity.id}"></td>
+                <td th:text="${productEntity.name}"></td>
+                <td th:text="${productEntity.price}"></td>
+                <td th:text="${productEntity.quantity}"></td>
+                <td th:text="${productEntity.brand}"></td>
+                <td th:text="${productEntity.madeIn}"></td>
+                <td th:text="${productEntity.totalAmount}"></td>
+                <td th:text="${productEntity.taxAmount}"></td>
+                <td th:text="${productEntity.createdAt}"></td>
+                <td th:text="${productEntity.createdBy}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Handle case where product is not found -->
+    <div th:if="${errorMessage}">
+        <p style="color: red;"><strong th:text="${errorMessage}"></strong></p>
+    </div>
+
+</body>
+</html>
